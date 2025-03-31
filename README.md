@@ -106,3 +106,46 @@ python corrigir_valores_csvs.py
 
 #
 
+
+# 🔍 Resultado das Análises - Desafio ANS
+
+Este documento contém as respostas geradas a partir das queries analíticas aplicadas sobre os dados públicos da ANS, conforme o desafio proposto.
+
+---
+
+## 📌 Pergunta 1:
+**Quais as 10 operadoras com maiores despesas em "EVENTOS/ SINISTROS CONHECIDOS OU AVISADOS DE ASSISTÊNCIA A SAÚDE MEDICO HOSPITALAR" no último trimestre?**
+
+**🟡 Resposta:** Nenhuma operadora registrada com despesas nessa categoria no **4º trimestre de 2024**.
+
+A query foi executada com filtros de `EXTRACT(YEAR FROM DATA) = 2024` e `EXTRACT(QUARTER FROM DATA) = 4`, mas retornou **0 registros**. Provavelmente os dados disponíveis ainda não incluem o 4º trimestre.
+
+---
+
+## 📌 Pergunta 2:
+**Quais as 10 operadoras com maiores despesas nessa categoria no último ano (2024)?**
+
+**🟢 Resposta:**
+
+| REG_ANS | Total Despesas (R$)       |
+|---------|---------------------------|
+| 006246  | R$ 5.749.999.840,83       |
+| 005711  | R$ 4.430.729.112,50       |
+| 323080  | R$ 1.062.336.822,91       |
+| 326305  | R$   880.911.670,31       |
+| 312363  | R$   716.705.707,96       |
+| 339679  | R$   613.774.045,59       |
+| 000582  | R$   457.698.792,01       |
+| 000701  | R$   344.788.594,55       |
+| 359661  | R$   173.032.221,39       |
+| 309222  | R$   163.631.656,24       |
+
+Esses dados foram obtidos somando a coluna `VL_SALDO_FINAL`, filtrando pela `DESCRICAO` contendo os termos:
+- `"sinistros"`
+- `"médico"`
+
+E agrupando pelo `REG_ANS` para identificar as operadoras com maiores despesas em 2024.
+
+---
+
+_Gerado automaticamente como parte do projeto de análise de dados ANS._
