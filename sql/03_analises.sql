@@ -1,4 +1,4 @@
--- Query 1: Top 10 operadoras com maiores despesas no último TRIMESTRE (ex: 4º trimestre de 2024)
+-- Query 1: Top 10 operadoras com maiores despesas
 SELECT 
     REG_ANS,
     EXTRACT(YEAR FROM DATA) AS ano,
@@ -30,7 +30,6 @@ LIMIT 10;
 
 
 -- Query 3 (com JOIN): Top 10 operadoras com nome_fantasia no último ANO (2024)
--- (Funciona se a tabela operadoras_ativas estiver populada corretamente)
 SELECT 
     dc.REG_ANS,
     op.nome_fantasia,
